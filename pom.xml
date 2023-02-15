@@ -15,10 +15,19 @@
     <quarkus.platform.version>2.16.2.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+    <dapr.version>1.6.0</dapr.version>
+    <okhttp.version>4.10.0</okhttp.version>
   </properties>
   <dependencyManagement>
     <dependencies>
-      <dependency>
+    <!-- Dapr -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp.version}</version>
+    </dependency>
+    <!-- Dapr -->
+    <dependency>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>${quarkus.platform.artifact-id}</artifactId>
         <version>${quarkus.platform.version}</version>
@@ -28,11 +37,13 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <!-- Dapr -->
     <dependency>
-      <groupId>io.quarkiverse.dapr</groupId>
-      <artifactId>quarkus-dapr</artifactId>
-      <version>1.0.4</version>
+      <groupId>io.dapr</groupId>
+      <artifactId>dapr-sdk</artifactId>
+      <version>${dapr.version}</version>
     </dependency>
+    <!-- Dapr -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jackson</artifactId>
@@ -40,10 +51,6 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
